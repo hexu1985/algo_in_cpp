@@ -3,12 +3,11 @@ RM = rm -f
 CXX = g++
 CXXFLAGS = -Wall -g
 INCLUDES = 
-LDFLAGS = -lm
+LDFLAGS =
 LDPATH =
-VPATH = 
 
 SOURCES = $(shell ls *.cpp)
-PROGS = out
+PROGS = $(SOURCES:%.cpp=%)
 
 all: $(PROGS)
 	@echo "PROGS = $(PROGS)" 
@@ -16,5 +15,5 @@ all: $(PROGS)
 clean:
 	$(RM) $(PROGS)
 
-$(PROGS): $(SOURCES) $(LIB_SOURCES)
+%: %.cpp
 	$(CXX) -o $@ $(CXXFLAGS) $(INCLUDES) $^ $(LDFLAGS) $(LDPATH)
