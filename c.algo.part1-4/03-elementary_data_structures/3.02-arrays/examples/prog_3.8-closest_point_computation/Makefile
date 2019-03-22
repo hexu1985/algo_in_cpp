@@ -5,9 +5,10 @@ CFLAGS = -Wall -g
 # general dependencies
 DEPS = Point.h
 # object files
-OBJ = point.o point_dt_implementation.o
+OBJ = prog_3.8-closest_point_computetion.o \
+      point_dt_implementation.o
 # main file name
-TARGET = point
+TARGET = prog_3.8-closest_point_computetion
 # out file name
 OUT = out
 # standard
@@ -23,4 +24,4 @@ $(OBJ): $(DEPS)
 
 .PHONY : clean
 clean:
-	rm -rf $(wildcard *.o) $(OUT)
+	rm -rf $(wildcard *.o) $(wildcard *~) $(OUT)
