@@ -1,14 +1,13 @@
 
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -g -DNDEBUG -std=c99
+CFLAGS = -Wall -g
 INCLUDES = 
-LDFLAGS = -lm
+LDFLAGS =
 LDPATH =
-VPATH = 
 
 SOURCES = $(shell ls *.c)
-PROGS = out
+PROGS = $(SOURCES:%.c=%)
 
 all: $(PROGS)
 	@echo "PROGS = $(PROGS)" 
@@ -16,5 +15,5 @@ all: $(PROGS)
 clean:
 	$(RM) $(PROGS)
 
-$(PROGS): $(SOURCES) $(LIB_SOURCES)
+%: %.c
 	$(CC) -o $@ $(CFLAGS) $(INCLUDES) $^ $(LDFLAGS) $(LDPATH)
